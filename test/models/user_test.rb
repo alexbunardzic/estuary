@@ -54,4 +54,12 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.authenticated?(:remember, '')
   end
 
+  test "associated projects should be destroyed" do
+    @user.save
+    @user.projects.create!(name: "Some", description: "bla bla")
+    assert_difference 'Project.count', -1 do
+      @user.destroy
+    end
+  end
+
 end

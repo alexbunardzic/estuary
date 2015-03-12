@@ -1,0 +1,15 @@
+<li id="project-<%= project.id %>">
+  <%= link_to gravatar_for(project.user, size: 50), project.user %>
+  <span class="user"><%= link_to project.user.name, project.user %></span>
+  <span class="name"><h4><%= project.name %></h4></span>
+  <span class="description">
+    <%= project.description %>
+    <%#= image_tag project.picture.url if project.picture? %>
+  </span>
+  <span class="timestamp">
+    &nbsp;&nbsp;&nbsp;&nbsp;<em>Created <%= time_ago_in_words(project.created_at) %> ago.</em>
+    <% if current_user?(project.user) %>
+      <%= link_to "Delete", project, method: :delete, data: { confirm: "Are you sure you want to delte this project?" } %>
+    <% end %>
+  </span>
+</li>

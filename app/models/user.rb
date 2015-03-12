@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :projects, dependent: :destroy
+  
   attr_accessor :remember_token, :activation_token
   before_save :downcase_email
   before_create :create_activation_digest
@@ -38,6 +40,12 @@ class User < ActiveRecord::Base
   # Forget a user.
   def forget
     update_attribute(:remember_digest, nil)
+  end
+
+  # Defines a proto-feed.
+  def feed
+    Project.where("user_id = ?", id)
+    #projects
   end
 
   private

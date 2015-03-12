@@ -1,0 +1,10 @@
+<%#= form_for(@project, html: { multipart: true }) do |f| %>
+<%= form_for @project do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field"><%= f.text_field :name, placeholder: "Type the project name..." %></div>
+  <div class="field"><%= f.text_area :description, placeholder: "Type project desdription..." %></div>
+  <%= f.submit "Create", class: "btn btn-primary" %>
+  <span class="picture">
+    <%#= f.file_field :picture %>
+  </span>
+<% end %>
