@@ -4,9 +4,9 @@
   #  config.fog_credentials = {
    #   # Configuration for Amazon S3
     #  :provider              => 'AWS',
-     # :aws_access_key_id     => ENV['AKIAIHFLED6BXN5O3DJA'],
-      #:aws_secret_access_key => ENV['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']
+     # :aws_access_key_id     => ENV[''],
+      #:aws_secret_access_key => ENV['e']
     #}
-    #config.fog_directory     =  ENV['estuary']
+    #config.fog_directory     =  ENV['']
   #end
 #end
