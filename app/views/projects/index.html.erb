@@ -1,0 +1,13 @@
+<h1>Projects</h1>
+<table>
+  <% @projects.each do |project| %>
+    <% user = User.find(project.user_id) %>
+    <tr>
+      <td><%= link_to "#{project.name}", project %> (by <%= link_to "#{user.name}", user %>)</td>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      <td><em><%= project.description %></em></td>
+      <td>&nbsp;&nbsp;</td>
+      <td>Created at <em><%= project.created_at.to_s[0, 10] %></em></td>
+    </tr>
+  <% end %>
+</table>

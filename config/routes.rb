@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     end
   end
   resources :account_activations, only: [:edit]
-  resources :projects, only: [:create, :destroy]
+  resources :projects, only: [:create, :destroy, :index, :show]
   resources :relationships, only: [:create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.

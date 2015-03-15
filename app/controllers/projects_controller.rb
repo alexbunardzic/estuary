@@ -1,7 +1,15 @@
 class ProjectsController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy]
   #before_action :correct_user, omly: :destroy
-  before_action :correct_user, except: :create
+  before_action :correct_user, except: [:create, :index, :show]
+
+  def index
+    @projects = Project.order(created_at: :desc)
+  end
+
+  def show
+    @project = Project.find(params[:id])
+  end
 
   def create
   	@project = current_user.projects.build(project_params)
